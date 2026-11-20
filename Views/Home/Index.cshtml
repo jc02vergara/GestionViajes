@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Gestión de Viajes</h1>
+    <p class="lead">Sistema para gestionar destinos, turistas y reservas de viajes.</p>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Destinos</h5>
+                <p class="card-text">Administra los destinos turísticos disponibles.</p>
+                <a asp-controller="Destinos" asp-action="Index" class="btn btn-primary">Ir a Destinos</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Turistas</h5>
+                <p class="card-text">Gestiona la información de los turistas.</p>
+                <a asp-controller="Turistas" asp-action="Index" class="btn btn-primary">Ir a Turistas</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Reservas</h5>
+                <p class="card-text">Registra y administra reservas de viajes.</p>
+                <a asp-controller="Reservas" asp-action="Index" class="btn btn-primary">Ir a Reservas</a>
+            </div>
+        </div>
+    </div>
+</div>

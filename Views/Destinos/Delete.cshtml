@@ -1,0 +1,24 @@
+@model GestionViajes.Models.Destino
+
+@{
+    ViewData["Title"] = "Eliminar destino";
+}
+
+<h1>Eliminar destino</h1>
+<h3>¿Está seguro de eliminar este destino?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Nombre</dt>
+        <dd class="col-sm-9">@Model.Nombre</dd>
+        <dt class="col-sm-3">País</dt>
+        <dd class="col-sm-9">@Model.Pais</dd>
+        <dt class="col-sm-3">Costo</dt>
+        <dd class="col-sm-9">@Model.Costo.ToString("C")</dd>
+    </dl>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="DestinoId" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

@@ -1,0 +1,59 @@
+@model IEnumerable<GestionViajes.Models.Reserva>
+
+@{
+    ViewData["Title"] = "Reservas";
+}
+
+<h1>Reservas de viajes</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear nueva reserva</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Destino</th>
+            <th>Turista</th>
+            <th>Fecha reserva</th>
+            <th>Fecha viaje</th>
+            <th>Personas</th>
+            <th>Total</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Destino?.Nombre</td>
+                <td>@item.Turista?.Nombre @item.Turista?.Apellido</td>
+                <td>@item.FechaReserva.ToShortDateString()</td>
+                <td>@item.FechaViaje.ToShortDateString()</td>
+                <td>@item.Personas</td>
+                <td>@item.Total.ToString("C")</td>
+                <td>@item.Estado</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ReservaId">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.ReservaId">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ReservaId">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if ((int)ViewBag.TotalPages > 1)
+{
+    <nav>
+        <ul class="pagination">
+            @for (int i = 1; i <= (int)ViewBag.TotalPages; i++)
+            {
+                <li class="page-item @(i == (int)ViewBag.Page ? "active" : "")">
+                    <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}

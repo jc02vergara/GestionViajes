@@ -1,0 +1,30 @@
+@model GestionViajes.Models.Reserva
+
+@{
+    ViewData["Title"] = "Detalles de la reserva";
+}
+
+<h1>Detalles de la reserva</h1>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Destino</dt>
+        <dd class="col-sm-9">@Model.Destino?.Nombre (@Model.Destino?.Pais)</dd>
+        <dt class="col-sm-3">Turista</dt>
+        <dd class="col-sm-9">@Model.Turista?.Nombre @Model.Turista?.Apellido</dd>
+        <dt class="col-sm-3">Fecha reserva</dt>
+        <dd class="col-sm-9">@Model.FechaReserva.ToShortDateString()</dd>
+        <dt class="col-sm-3">Fecha viaje</dt>
+        <dd class="col-sm-9">@Model.FechaViaje.ToShortDateString()</dd>
+        <dt class="col-sm-3">Personas</dt>
+        <dd class="col-sm-9">@Model.Personas</dd>
+        <dt class="col-sm-3">Total</dt>
+        <dd class="col-sm-9">@Model.Total.ToString("C")</dd>
+        <dt class="col-sm-3">Estado</dt>
+        <dd class="col-sm-9">@Model.Estado</dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ReservaId" class="btn btn-primary">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</div>
